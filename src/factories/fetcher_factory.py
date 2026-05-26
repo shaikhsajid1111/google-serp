@@ -6,7 +6,7 @@ from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
 class Fetcherfactory:
     @staticmethod
     def create_fetcher(browser_type: str) -> IHtmlFetcher:
-        supported = ["chrome", "edge", "firefox", "brave"]
+        supported = ["chrome", "brave"]
         normalized = browser_type.lower()
         if normalized in supported:
             return SeleniumBaseFetcher()
