@@ -109,8 +109,6 @@ If Google updates its underlying web interface design rules, you do not need to 
 GOOGLE_BASE_URL = "https://google.com"
 PAGE_LOAD_TIMEOUT = 7
 
-# Update these targets if Google modifies its HTML hierarchy layout
-GOOGLE_SEARCH_CONTAINER = "div.g"
-GOOGLE_TITLE_SELECTOR = "h3"
-GOOGLE_LINK_SELECTOR = "a[href]"
+#more selctors
+
 ```
