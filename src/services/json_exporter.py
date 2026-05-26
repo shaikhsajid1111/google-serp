@@ -7,5 +7,5 @@ from src.models.search_result import SearchResult
 
 class JsonExporter(IDataExporter):
 
-    def export_to_json(self, data):
+    def export(self, data):
         return json.dumps([asdict(item) for item in data], indent=1)

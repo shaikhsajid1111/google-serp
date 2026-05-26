@@ -27,4 +27,4 @@ class GoogleScraperOrchestrator:
         )
         parser_config = ParserConfig(raw_html_content=raw_html, max_result=max_results)
         parsed_data = self._parser.parse(parser_config)
-        return self._data_exporter.export_to_json(parsed_data)
+        return self._data_exporter.export(parsed_data)

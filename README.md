@@ -4,7 +4,7 @@ A modular, on-demand web crawler built in Python to programmatically extract sea
 
 ## Features
 
-* **Dynamic Browser Swapping**: Easily switch execution runtimes between Google Chrome, Brave, Firefox, and Microsoft Edge.
+* **Dynamic Browser Swapping**: Easily switch execution runtimes between Google Chrome, and Brave.
 * **Built-in Bot Protection**: Leverages undetected browser automation to bypass tracking cookies and security challenge loops.
 * **On-Demand Extraction**: Synchronous pipeline designed to fetch up to 10 organic search results instantly based on user queries.
 * **Deterministic Teardown**: Implements kernel-level process management to guarantee no lingering background browser windows or zombie memory leaks on Ubuntu/Linux systems.

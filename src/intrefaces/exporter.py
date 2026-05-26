@@ -5,5 +5,5 @@ from src.models.search_result import SearchResult
 
 class IDataExporter(ABC):
     @abstractmethod
-    def export_to_json(self, data: List[SearchResult]) -> str:
+    def export(self, data: List[SearchResult]) -> str:
         pass

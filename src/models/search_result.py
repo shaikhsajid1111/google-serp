@@ -1,7 +1,6 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass(frozen=True)
-class SearchResult:
+class SearchResult(BaseModel):
     title: str
     url: str
