@@ -7,8 +7,8 @@ from src.services.json_exporter import JsonExporter
 
 
 def main():
-    browser_input = "brave"
-    query = "Sajid Shaikh Software Engineer site:linkedin.com/in"
+    browser_input = input("Select Browser (chrome/brave): ")
+    query = input("Enter search query: ")
     config: SelenmiumBrowserConfig = SelenmiumBrowserConfig(
         uc=True, browser_path="/usr/bin/brave-browser", headless=False
     )
