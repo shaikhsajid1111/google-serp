@@ -1,5 +1,8 @@
 # Google SERP Scraper
 
+ 
+![Open Source Love](https://shields.io) ![License: MIT](https://shields.io) ![Built with Python](https://shields.io)
+
 A modular, on-demand web crawler built in Python to programmatically extract search engine results pages (SERP) from Google. The tool allows dynamic browser switching, automatically handles anti-bot detection walls via advanced stealth mechanisms, and outputs structured JSON data.
 
 ## Features
