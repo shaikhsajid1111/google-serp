@@ -8,4 +8,4 @@ from src.models.search_result import SearchResult
 class JsonExporter(IDataExporter):
 
     def export(self, data):
-        return json.dumps([asdict(item) for item in data], indent=1)
+        return json.dumps([item.model_dump() for item in data], indent=1)

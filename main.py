@@ -3,7 +3,7 @@ from src.factories.fetcher_factory import Fetcherfactory
 from src.services.parser_html import GoogleSerpParser
 from src.orchestrator import GoogleScraperOrchestrator
 from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
-from src.services.csv_exporter import CSVExporter
+from src.services.json_exporter import JsonExporter
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
     try:
         fetcher = Fetcherfactory.create_fetcher(browser_input)
         parser = GoogleSerpParser()
-        data_exporter = CSVExporter()
+        data_exporter = JsonExporter()
 
         scraper = GoogleScraperOrchestrator(fetcher, parser, data_exporter)
         data = scraper.scrape(query, 10, browser_input, config)

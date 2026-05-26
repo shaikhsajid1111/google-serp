@@ -87,12 +87,20 @@ Upon successful execution, the scraping engine coordinates the data workflow pip
 ```json
 [
     {
-        "title": "Automated Web Scraping with Python: A Complete Guide",
-        "url": "https://example-blog.com"
+        "title": "Software Engineer (Full-Stack & Data Engineering)",
+        "url": "https://shaikhsajid1111.github.io/portfolio/"
     },
     {
-        "title": "BeautifulSoup and Selenium: Best Practices for Developers",
-        "url": "https://developer-resource.org"
+        "title": "Sajid Shaikh",
+        "url": "https://dev.to/shaikhsajid1111"
+    },
+    {
+        "title": "Sajid Shaikh - Full stack Developer | HTML5 | CSS3",
+        "url": "https://in.linkedin.com/in/sajid-shaikh-66a793201"
+    },
+    {
+        "title": "Sajid Shaikh",
+        "url": "https://us.sios.com/leadership/sajid-shaikh/"
     }
 ]
 ```
