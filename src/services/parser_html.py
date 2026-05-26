@@ -4,14 +4,14 @@ from src.intrefaces.parser_html import IhtmlParser
 from src.models.search_result import SearchResult
 from config import settings
 from src.intrefaces.parser_confg import ParserConfig
-
+from config.settings import H3_SELECTOR
 
 class GoogleSerpParser(IhtmlParser):
 
     def parse(self, parser_config: ParserConfig):
         results: List[SearchResult] = []
         soup = BeautifulSoup(parser_config.raw_html_content, "html.parser")
-        h3_tags = soup.select("div[data-rpos] h3")
+        h3_tags = soup.select(H3_SELECTOR)
 
         for h3 in h3_tags[: parser_config.max_result]:
             title = h3.get_text(strip=True)
