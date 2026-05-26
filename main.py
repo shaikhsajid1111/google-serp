@@ -10,7 +10,7 @@ def main():
     browser_input = input("Select Browser (chrome/brave): ")
     query = input("Enter search query: ")
     config: SelenmiumBrowserConfig = SelenmiumBrowserConfig(
-        uc=True, browser_path="/usr/bin/brave-browser", headless=False
+        uc=True, browser_path="/usr/bin/google-chrome", headless=False
     )
     try:
         fetcher = Fetcherfactory.create_fetcher(browser_input)

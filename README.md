@@ -2,7 +2,7 @@
 
 A modular, on-demand web crawler built in Python to programmatically extract search engine results pages (SERP) from Google. The tool allows dynamic browser switching, automatically handles anti-bot detection walls via advanced stealth mechanisms, and outputs structured JSON data.
 
-## 🚀 Features
+## Features
 
 * **Dynamic Browser Swapping**: Easily switch execution runtimes between Google Chrome, Brave, Firefox, and Microsoft Edge.
 * **Built-in Bot Protection**: Leverages undetected browser automation to bypass tracking cookies and security challenge loops.
@@ -12,7 +12,7 @@ A modular, on-demand web crawler built in Python to programmatically extract sea
 
 ---
 
-## 📁 Project Directory Layout
+## Project Directory Layout
 
 ```text
 google_scraper/
@@ -37,7 +37,7 @@ google_scraper/
 
 ---
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 This project is built and optimized for Python 3.11+ on Ubuntu Desktop.
 
@@ -64,7 +64,7 @@ pip install "python-xlib==0.33" --force-reinstall
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 Execute the entry-point script directly from your terminal. The script will guide you through dynamic browser targets and string criteria input options:
 
@@ -80,7 +80,7 @@ Enter search query: automated web scraping python
 
 ---
 
-## 📊 Sample Output Format
+## Sample Output Format
 
 Upon successful execution, the scraping engine coordinates the data workflow pipeline and prints out formatted structural serialization maps:
 
@@ -99,7 +99,7 @@ Upon successful execution, the scraping engine coordinates the data workflow pip
 
 ---
 
-## ⚙️ Configuration Adjustments
+## Configuration Adjustments
 
 If Google updates its underlying web interface design rules, you do not need to modify the core crawler files. Simply adjust your structural class target strings in **`config/settings.py`**:
 
