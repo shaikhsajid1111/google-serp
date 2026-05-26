@@ -74,7 +74,7 @@ python3 main.py
 
 ### Prompt Example:
 ```text
-Select Browser (chrome/brave/firefox/edge): brave
+Select Browser (chrome/brave): brave
 Enter search query: automated web scraping python
 ```
 
