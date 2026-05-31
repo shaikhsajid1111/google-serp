@@ -25,8 +25,8 @@ class ForceProcessCloseUtils:
                 print(f"Error while force killing the process with pid : {pid}: {ex}")
                 ForceProcessCloseUtils.force_close_processes_using_subprocess([pid])
 
-    def force_close_processes_using_subprocess(spawed_ids: List[str]):
-        for pid in spawed_ids:
+    def force_close_processes_using_subprocess(spawned_ids: List[str]):
+        for pid in spawned_ids:
             try:
                 command = ["kill", "-9", pid]
                 subprocess.run(
