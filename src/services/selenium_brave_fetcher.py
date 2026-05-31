@@ -1,13 +1,9 @@
 from seleniumbase import SB
 from src.intrefaces.fetcher_html import IHtmlFetcher
-from config.settings import PAGE_LOAD_TIMEOUT
+from config.settings import PAGE_LOAD_TIMEOUT, SEARCH_BAR_HTML_TAG_NAME
 from utils.uri_utils import UriUtils
-from time import sleep
+from utils.force_close_utils import ForceProcessCloseUtils
 from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
-import subprocess
-import os
-import signal
-
 
 class SeleniumBaseFetcher(IHtmlFetcher):
 
@@ -21,15 +17,9 @@ class SeleniumBaseFetcher(IHtmlFetcher):
         source_html = ""
         encoded_url = UriUtils.build_query_url(query)
 
-        # 1. Take a snapshot of all active Brave PIDs before we launch our session
-        pids_before = set()
-        if "brave" in browser_name.lower():
-            try:
-                output = subprocess.check_output(["pgrep", "-f", "brave"])
-                pids_before = set(output.decode().strip().split())
-            except Exception:
-                pass
-
+        pids_before = \
+            ForceProcessCloseUtils.extract_processes_pids(browser_name.lower())
+            
         try:
             with SB(
                 browser=browser_name,
@@ -43,51 +33,21 @@ class SeleniumBaseFetcher(IHtmlFetcher):
                 if sb.is_text_visible("checking your browser", "body"):
                     sb.sleep(4)
 
-                sb.wait_for_element("#search", timeout=PAGE_LOAD_TIMEOUT)
+                sb.wait_for_element(SEARCH_BAR_HTML_TAG_NAME, 
+                                    timeout=PAGE_LOAD_TIMEOUT)
                 source_html = sb.get_page_source()
-
-                # Let the block finish naturally to prevent thread-lock exceptions
-
         except Exception as ex:
             print(f"Error while fetching page: {ex}")
             return ""
 
         finally:
-            # 2. THE ULTIMATE KERNEL-LEVEL PURGE
-            # If Brave is running, we find exactly which processes were created
-            # by this specific script execution and kill them directly via OS signals.
-            if "brave" in browser_name.lower():
-                sb.sleep(
-                    0.5
-                )  # Give the context manager a split second to release files
-                try:
-                    # Capture all running brave PIDs now
-                    output_after = subprocess.check_output(["pgrep", "-f", "brave"])
-                    pids_after = set(output_after.decode().strip().split())
-
-                    # Isolate the exact orphan child processes spawned by our script
-                    spawned_pids = pids_after - pids_before
-
-                    for pid in spawned_pids:
-                        try:
-                            # Send SIGKILL (Signal 9) to forcefully terminate the window instantly
-                            os.kill(int(pid), signal.SIGKILL)
-                        except Exception:
-                            pass
-                except Exception:
-                    # Fallback global sweep if pgrep hits an operational snag
-                    try:
-                        subprocess.run(
-                            ["pkill", "-9", "-f", "brave-browser"],
-                            stdout=subprocess.DEVNULL,
-                            stderr=subprocess.DEVNULL,
-                        )
-                        subprocess.run(
-                            ["pkill", "-9", "-f", "brave"],
-                            stdout=subprocess.DEVNULL,
-                            stderr=subprocess.DEVNULL,
-                        )
-                    except Exception:
-                        pass
+            sb.sleep(
+                0.5
+            )  # Give the context manager a split second to release files
+            pids_after = ForceProcessCloseUtils.extract_processes_pids(browser_name.lower())
+            # Isolate the exact orphan child processes spawned by our script
+            spawned_pids = pids_after - pids_before
+            ForceProcessCloseUtils.force_close_processes(spawned_pids)
+                
 
         return source_html
