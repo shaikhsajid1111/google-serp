@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
+from src.intrefaces.selenium_browser_configs import SeleniumBrowserConfig
 
 
 class IHtmlFetcher(ABC):
@@ -11,6 +11,6 @@ class IHtmlFetcher(ABC):
         self,
         query: str,
         browser_name: str,
-        selenium_browser_config: SelenmiumBrowserConfig,
+        selenium_browser_config: SeleniumBrowserConfig,
     ) -> str:
         pass

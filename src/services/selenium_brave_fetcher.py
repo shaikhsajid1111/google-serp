@@ -3,7 +3,7 @@ from src.intrefaces.fetcher_html import IHtmlFetcher
 from config.settings import PAGE_LOAD_TIMEOUT, SEARCH_BAR_HTML_TAG_NAME
 from utils.uri_utils import UriUtils
 from utils.force_close_utils import ForceProcessCloseUtils
-from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
+from src.intrefaces.selenium_browser_configs import SeleniumBrowserConfig
 
 class SeleniumBaseFetcher(IHtmlFetcher):
 
@@ -11,7 +11,7 @@ class SeleniumBaseFetcher(IHtmlFetcher):
         self,
         query: str,
         browser_name: str,
-        selenium_browser_config: SelenmiumBrowserConfig,
+        selenium_browser_config: SeleniumBrowserConfig
     ) -> str:
 
         source_html = ""
@@ -26,6 +26,7 @@ class SeleniumBaseFetcher(IHtmlFetcher):
                 uc=selenium_browser_config.uc,
                 headless=False,
                 xvfb=False,
+                proxy=selenium_browser_config.proxy
             ) as sb:
 
                 sb.open(encoded_url)

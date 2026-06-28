@@ -1,6 +1,6 @@
 from src.intrefaces.fetcher_html import IHtmlFetcher
 from src.services.selenium_brave_fetcher import SeleniumBaseFetcher
-from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
+from src.intrefaces.selenium_browser_configs import SeleniumBrowserConfig
 
 
 class Fetcherfactory:

@@ -2,15 +2,15 @@ import sys
 from src.factories.fetcher_factory import Fetcherfactory
 from src.services.parser_html import GoogleSerpParser
 from src.orchestrator import GoogleScraperOrchestrator
-from src.intrefaces.selenium_browser_configs import SelenmiumBrowserConfig
+from src.intrefaces.selenium_browser_configs import SeleniumBrowserConfig
 from src.services.json_exporter import JsonExporter
 
 
 def main():
     browser_input = input("Select Browser (chrome/brave): ")
     query = input("Enter search query: ")
-    config: SelenmiumBrowserConfig = SelenmiumBrowserConfig(
-        uc=True, browser_path="/usr/bin/google-chrome", headless=False
+    config: SeleniumBrowserConfig = SeleniumBrowserConfig(
+        uc=True, browser_path="/usr/bin/google-chrome", headless=False, proxy=None
     )
     try:
         fetcher = Fetcherfactory.create_fetcher(browser_input)
