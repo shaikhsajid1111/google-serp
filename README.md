@@ -56,11 +56,18 @@ sudo apt update && sudo apt install -y xvfb
 ### 2. Install Project Dependencies
 Clone this repository to your workspace, set up a virtual environment, and install the library stack:
 
+Using `pip` and `requirements.txt`:
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Using `uv`:
+```bash
+uv sync
+```
+
 
 *Note: If you run into X11 or Wayland version crashes on newer Ubuntu builds, force install the verified display control mapping wrapper:*
 ```bash
