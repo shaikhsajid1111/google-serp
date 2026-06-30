@@ -264,6 +264,6 @@ If Google updates its underlying web interface design rules, you do not need to 
 GOOGLE_BASE_URL = "https://google.com"
 PAGE_LOAD_TIMEOUT = 7
 
-#more selctors
+#more selectors
 
 ```

@@ -1,7 +1,7 @@
 [project]
-name = "serp-google"
+name = "google-serp"
 version = "0.1.0"
-description = "Add your description here"
+description = "A modular, on-demand Python SERP crawler for Google. Features dynamic browser switching, advanced anti-bot stealth, and structured JSON output."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
